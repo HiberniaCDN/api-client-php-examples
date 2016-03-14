@@ -1,3 +1,1 @@
-## HiberniaCDN PHP client examples
-
- examples.php - contains basic example how to Authenticate user at HiberniaCDN API and reuse Authorization token for further requests
+Main repository is located here: https://github.com/HiberniaCDN/api-client-php

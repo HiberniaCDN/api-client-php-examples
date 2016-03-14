@@ -1,0 +1,15 @@
+{
+  "name": "HiberniaCDN/api-client-php",
+  "type": "library",
+  "description": "HiberniaCDN API Client",
+  "version": "0.0.1",
+  "require": {
+    "php": ">=5.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "HiberniaCDN\\APIClient\\": "src"
+    }
+  }
+
+}

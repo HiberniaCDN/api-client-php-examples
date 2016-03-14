@@ -2,18 +2,15 @@
 /**
  * Simple HTTP-Requests interaction for API Client
  */
-namespace HiberniaCDN;
+namespace HiberniaCDN\APIClient;
 
-include_once 'APIException.php';
-
-class APIHTTPClient
+class HTTPClient
 {
     /**
-     * API Url: https://portal.hiberniacdn.com/api
-     * 
+     * API endpoint: https://portal.hiberniacdn.com/api
      * @var string
      */
-    protected $apiURL = '';
+    protected $apiURL = 'https://portal.hiberniacdn.com/api';
 
     /**
      * APIHTTPClient constructor.
@@ -76,14 +73,14 @@ class APIHTTPClient
      * 
      * @param string $rawResponse API response JSON-string
      * @return mixed|null
-     * @throws APIException
+     * @throws Exception
      */
     protected function parseAPIResponse($rawResponse)
     {
         if (!empty($rawResponse)) {
             $decoded = json_decode($rawResponse, true);
             if (!empty($decoded['errors'])) {
-                $exception = new APIException();
+                $exception = new Exception();
                 $exception->setApiResponse($rawResponse);
                 if ($decoded['errors'][0] && $decoded['errors'][0]['title']) {
                     $exception
@@ -105,7 +102,7 @@ class APIHTTPClient
      * @param string $uri API URI (example: '/accounts/{ID}')
      * @param string $authToken Authorization Token
      * @return mixed|null
-     * @throws APIException
+     * @throws Exception
      */
     public function get($uri, $authToken = '')
     {
@@ -125,7 +122,7 @@ class APIHTTPClient
      * @param array $parameters Request parameters
      * @param string $authToken Authorization Token
      * @return mixed|null
-     * @throws APIException
+     * @throws Exception
      */
     public function post($uri, $parameters, $authToken = '')
     {
@@ -146,7 +143,7 @@ class APIHTTPClient
      * @param array $parameters Request parameters
      * @param string $authToken Authorization Token
      * @return mixed|null
-     * @throws APIException
+     * @throws Exception
      */
     public function put($uri, $parameters, $authToken = '')
     {
@@ -166,7 +163,7 @@ class APIHTTPClient
      * @param string $uri API URI (example: '/sites/{ID}')
      * @param string $authToken Authorization Token
      * @return mixed|null
-     * @throws APIException
+     * @throws Exception
      */
     public function delete($uri, $authToken = '')
     {

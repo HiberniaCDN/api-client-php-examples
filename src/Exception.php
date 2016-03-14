@@ -2,9 +2,9 @@
 /**
  * Exception wrapper-object for API errors handling
  */
-namespace HiberniaCDN;
+namespace HiberniaCDN\APIClient;
 
-class APIException extends \Exception
+class Exception extends \Exception
 {
     /**
      * Raw API JSON-string response
