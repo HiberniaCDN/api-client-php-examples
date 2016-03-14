@@ -1,2 +1,2 @@
-Main repository is located here
+Repository is moved here
 ## https://github.com/HiberniaCDN/api-client-php
